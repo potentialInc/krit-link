@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><meta name="referrer" content="origin"><title>이동 중…</title>
+<p>공고로 이동 중… <a id="l" href="#">안 넘어가면 클릭</a></p>
+<script>
+// KRIT post pages refuse a request with no Referer; this hop supplies one.
+const id = new URLSearchParams(location.search).get('krit');
+if (/^\d+$/.test(id || '')) {
+  const u = `https://www.krit.re.kr/krit/bbs/notice_view.do?bbsId=notice&nttId=${id}&page=1&menu_no=05010000`;
+  document.getElementById('l').href = u;
+  location.replace(u);
+}
+</script>
